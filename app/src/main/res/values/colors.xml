@@ -12,6 +12,6 @@
     <color name="secondaryDarkColor">#000000</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#ffffff</color>
-    <color name="accent">#212121</color>
+    <color name="accent">#9E9E9E</color>
     <color name="divider">#BDBDBD</color>
 </resources>

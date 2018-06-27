@@ -35,5 +35,7 @@
     <dimen name="margin_large_1">28dp</dimen>
 
     <!-- App specific -->
+    <dimen name="margin_xxxlarge">56dp</dimen>
+    <dimen name="item_height">400dp</dimen>
 
 </resources>
