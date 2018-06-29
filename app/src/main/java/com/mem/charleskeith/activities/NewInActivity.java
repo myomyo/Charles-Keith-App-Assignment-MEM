@@ -100,7 +100,7 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                NewProductModel.getObjInstance().loadNewProductList();
+                NewProductModel.getObjInstance().forceRefreshNewsList();
             }
         });
 
