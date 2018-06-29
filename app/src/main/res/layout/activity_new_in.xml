@@ -104,13 +104,14 @@
             android:textSize="@dimen/text_regular_2x"
             android:textColor="@color/primaryTextColor"
             android:layout_gravity="center|top"
-            android:layout_marginTop="@dimen/margin_xlarge"/>
+            android:layout_marginTop="@dimen/margin_xxlarge"
+            android:fontFamily="@font/font_futra_light"/>
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin_xxxxlarge">
+            android:layout_marginTop="68dp">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_new_in"
