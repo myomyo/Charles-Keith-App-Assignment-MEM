@@ -35,6 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/font_futra_light"
                     android:text="@string/subtitle"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_regular_3x" />
@@ -64,37 +65,58 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/iv_rectangle_one"
+            android:layout_width="26dp"
+            android:layout_height="28dp"
             android:layout_marginStart="@dimen/margin_medium_3"
-            android:src="@drawable/ic_crop_din_black_24dp"
-            android:layout_marginTop="@dimen/margin_medium"/>
+            android:src="@drawable/drawisland_1"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:scaleType="fitXY"/>
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_xxlarge"
-            android:src="@drawable/ic_crop_din_black_24dp"
-            android:layout_marginTop="@dimen/margin_medium"/>
+            android:id="@+id/iv_rectangle_two"
+            android:layout_width="52dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="70dp"
+            android:src="@drawable/drawisland_2"
+            android:scaleType="fitXY"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/new_in_title"
             android:layout_gravity="right"
-            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:layout_marginRight="@dimen/margin_medium_2"
             android:layout_marginTop="@dimen/margin_medium"
+            android:fontFamily="@font/font_futra_light"
             android:text="Sort By"
             android:textAllCaps="true"
             android:textColor="@color/primaryTextColor"
-            android:textSize="@dimen/text_regular_2x"
-            />
+            android:textSize="@dimen/text_regular"
+            android:textStyle="bold" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_new_in"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin_xxlarge" />
+            android:layout_marginTop="@dimen/margin_xxlarge">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_new_in"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <include
+            android:id="@+id/vp_empty"
+            layout="@layout/view_pod_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

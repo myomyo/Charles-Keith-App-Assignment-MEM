@@ -4,4 +4,5 @@
 
     <string name="title">CHARLES &amp; KEITH</string>
     <string name="subtitle">NEW IN</string>
+    <string name="empty_msg">Sorry! \n Any information can not be displayed.</string>
 </resources>
