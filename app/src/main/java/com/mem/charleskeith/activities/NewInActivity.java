@@ -6,11 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 
 import com.mem.charleskeith.R;
@@ -44,6 +46,12 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
     @BindView(R.id.vp_empty)
     EmptyViewPod vpEmpty;
 
+    @BindView(R.id.iv_rectangle_one)
+    ImageView ivRectangleOne;
+
+    @BindView(R.id.iv_rectangle_two)
+    ImageView getIvRectangleTwo;
+
     /*@BindView(R.id.tabs)
     TabLayout tabLayout;*/
 
@@ -61,8 +69,6 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
         rvNewIn.setAdapter(mNewInAdapter);
         rvNewIn.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
 
-        /*tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_crop_din_black_24dp));*/
 
         rvNewIn.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
@@ -104,7 +110,21 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
             }
         });
 
-        //vpEmpty.setEmptyData(R.drawable.placeholder_image, getString(R.string.empty_msg));
+        vpEmpty.setEmptyData(R.drawable.placeholder_image, getString(R.string.empty_msg));
+
+        ivRectangleOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rvNewIn.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
+            }
+        });
+
+        getIvRectangleTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rvNewIn.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2,GridLayoutManager.VERTICAL, false));
+            }
+        });
     }
 
     @Override
@@ -131,6 +151,7 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
         Log.d("onSuccessGetNewProduct", "onSuccessGetNewProduct : "+event.getProductList().size());
         mNewInAdapter.appendNewProductList(event.getProductList());
         swipeRefreshLayout.setRefreshing(false);
+        vpEmpty.setVisibility(View.GONE);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -145,6 +166,7 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSuccessForceRefreshGetNewProduct(SuccessGetNewProductEvent event){
         mNewInAdapter.setProductList(event.getProductList());
+        Log.d("onSuccessForceRefresh", "onSuccessForceRefreshGetNewProduct : "+event.getProductList().size());
         swipeRefreshLayout.setRefreshing(false);
     }
 }

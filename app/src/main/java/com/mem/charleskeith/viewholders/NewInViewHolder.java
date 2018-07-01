@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Optional;
 
-public class NewInViewHolder extends RecyclerView.ViewHolder {
+public class NewInViewHolder extends BaseNewInViewHolder {
 
     private NewInDelegate mNewInDelegate;
     private ProductVO mProduct;
@@ -40,7 +40,9 @@ public class NewInViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void setNewProductData(ProductVO product) {
+    @Override
+    public void bindData(ProductVO product, int itemCount) {
+
         mProduct = product;
         tvNewItemName.setText(product.getProductTitle());
         GlideApp.with(ivNewItem.getContext())
@@ -49,4 +51,6 @@ public class NewInViewHolder extends RecyclerView.ViewHolder {
                 .error(R.drawable.error)
                 .into(ivNewItem);
     }
+
+
 }

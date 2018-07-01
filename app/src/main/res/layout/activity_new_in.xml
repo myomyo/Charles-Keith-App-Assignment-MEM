@@ -15,7 +15,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary">
 
 
@@ -24,10 +24,12 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/iv_setting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium_2"
                     android:src="@drawable/ic_menu_black_24dp" />
 
                 <TextView
@@ -35,26 +37,51 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/margin_medium_2"
                     android:fontFamily="@font/font_futra_light"
                     android:text="@string/subtitle"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="@dimen/text_regular_3x" />
 
+                <ImageView
+                    android:id="@+id/iv_rectangle_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_setting"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/rec_1" />
+
+                <ImageView
+                    android:id="@+id/iv_rectangle_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_setting"
+                    android:layout_marginStart="@dimen/margin_card_medium_2"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_toRightOf="@+id/iv_rectangle_one"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/rec_2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_setting"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginTop="@dimen/margin_medium_3"
+                    android:layout_toRightOf="@id/iv_rectangle_two"
+                    android:fontFamily="@font/font_futra_light"
+                    android:text="Sort By"
+                    android:textAllCaps="true"
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="@dimen/text_regular"
+                    android:textStyle="bold" />
+
+
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
 
-        <!--<android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabGravity="center"
-            app:tabMode="fixed">
-           &lt;!&ndash; <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_crop_din_black_24dp"/>&ndash;&gt;
-
-        </android.support.design.widget.TabLayout>-->
 
     </android.support.design.widget.AppBarLayout>
 
@@ -64,60 +91,28 @@
         android:background="@color/primaryColor"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ImageView
-            android:id="@+id/iv_rectangle_one"
-            android:layout_width="26dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="@dimen/margin_medium_3"
-            android:src="@drawable/drawisland_1"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:scaleType="fitXY"/>
 
-        <ImageView
-            android:id="@+id/iv_rectangle_two"
-            android:layout_width="52dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="70dp"
-            android:src="@drawable/drawisland_2"
-            android:scaleType="fitXY"
-            android:layout_marginTop="10dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/new_in_title"
-            android:layout_gravity="right"
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:layout_marginRight="@dimen/margin_medium_2"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:fontFamily="@font/font_futra_light"
-            android:text="Sort By"
-            android:textAllCaps="true"
-            android:textColor="@color/primaryTextColor"
-            android:textSize="@dimen/text_regular"
-            android:textStyle="bold" />
-        <TextView
+        <!--<TextView
             android:id="@+id/tv_number_of_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="87 ITEMS"
-            android:textSize="@dimen/text_regular_2x"
-            android:textColor="@color/primaryTextColor"
             android:layout_gravity="center|top"
-            android:layout_marginTop="@dimen/margin_xxlarge"
-            android:fontFamily="@font/font_futra_light"/>
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:fontFamily="@font/font_futra_light"
+            android:text="87 ITEMS"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/text_regular_2x" />-->
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="68dp">
+            android:layout_marginTop="@dimen/margin_medium_2">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_new_in"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+                android:layout_height="match_parent" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
         <include

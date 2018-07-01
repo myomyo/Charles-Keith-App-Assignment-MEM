@@ -64,6 +64,7 @@ public class NewProductModel {
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onSuccessForceRefreshGetNewProduct(SuccessForceRefreshGetNewProductEvent event) {
         setDataIntoRepository(event.getProductList());
+        mPage++;
     }
 
     private void setDataIntoRepository(List<ProductVO> productList) {

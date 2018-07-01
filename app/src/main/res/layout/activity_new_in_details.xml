@@ -89,7 +89,17 @@
                 android:layout_marginTop="@dimen/margin_xlarge"
                 android:layout_marginRight="@dimen/margin_medium_2"
                 android:paddingHorizontal="@dimen/margin_medium"/>
-            <TextView
+
+            <ImageView
+                android:id="@+id/iv_colours"
+                android:layout_width="27dp"
+                android:layout_height="120dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:layout_below="@+id/btn_info"
+                android:src="@drawable/colours"
+                android:scaleType="fitXY"/>
+            <!--<TextView
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="COLOURS"
@@ -101,7 +111,7 @@
                 android:layout_marginTop="220dp"
                 android:gravity="center"
                 android:paddingVertical="@dimen/margin_small"
-                android:layout_marginRight="@dimen/margin_xxlarge_n"/>
+                android:layout_marginRight="@dimen/margin_xxlarge_n"/>-->
 
         </RelativeLayout>
 

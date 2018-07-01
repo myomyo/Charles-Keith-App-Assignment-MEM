@@ -1,8 +1,9 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Charles &amp; Keith</string>
     <string name="action_settings">Settings</string>
 
     <string name="title">CHARLES &amp; KEITH</string>
     <string name="subtitle">NEW IN</string>
     <string name="empty_msg">Sorry! \n Any information can not be displayed.</string>
+    <string name = "format_item_count"> <xliff:g id="posted_date">%1$s</xliff:g> ITEMS</string>
 </resources>

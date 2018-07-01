@@ -10,12 +10,14 @@ import com.mem.charleskeith.R;
 
 import com.mem.charleskeith.data.vos.ProductVO;
 import com.mem.charleskeith.delegates.NewInDelegate;
+import com.mem.charleskeith.viewholders.BaseNewInViewHolder;
+import com.mem.charleskeith.viewholders.NewInHeaderViewHolder;
 import com.mem.charleskeith.viewholders.NewInViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewInAdapter extends RecyclerView.Adapter<NewInViewHolder> {
+public class NewInAdapter extends RecyclerView.Adapter<BaseNewInViewHolder> {
 
 
     private static final int TYPE_HEADER = 0;
@@ -31,26 +33,26 @@ public class NewInAdapter extends RecyclerView.Adapter<NewInViewHolder> {
 
     @NonNull
     @Override
-    public NewInViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BaseNewInViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
 
-       /* if(viewType == TYPE_HEADER){
+        if(viewType == TYPE_HEADER){
 
             View view = layoutInflater.inflate(R.layout.viewholder_new_in_header, parent, false);
-            return new NewInViewHolder(view, mNewInDelegate);
+            return new NewInHeaderViewHolder(view);
 
-        }else if (viewType == TYPE_ITEM){*/
+        }else if (viewType == TYPE_ITEM){
             View view = layoutInflater.inflate(R.layout.viewholder_new_in, parent, false);
             return new NewInViewHolder(view, mNewInDelegate);
-        //}
+        }
 
-       // return null;
+       return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewInViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BaseNewInViewHolder holder, int position) {
 
-        holder.setNewProductData(mProductList.get(position));
+        holder.bindData(mProductList.get(position), mProductList.size());
     }
 
 
@@ -59,13 +61,13 @@ public class NewInAdapter extends RecyclerView.Adapter<NewInViewHolder> {
         return mProductList.size(); //TODO need to add 1 to list size;
     }
 
-   /* @Override
+    @Override
     public int getItemViewType(int position) {
         //return super.getItemViewType(position);
         if(isPositionHeader(position))
             return TYPE_HEADER;
         return TYPE_ITEM;
-    }*/
+    }
 
     private boolean isPositionHeader(int position)
     {
@@ -79,7 +81,7 @@ public class NewInAdapter extends RecyclerView.Adapter<NewInViewHolder> {
 
     public void appendNewProductList(List<ProductVO> productList){
 
-        mProductList = productList;
+        mProductList.addAll(productList);
         notifyDataSetChanged();
     }
 }
