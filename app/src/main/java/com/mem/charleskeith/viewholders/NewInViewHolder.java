@@ -43,6 +43,7 @@ public class NewInViewHolder extends BaseNewInViewHolder {
     @Override
     public void bindData(ProductVO product, int itemCount) {
 
+        //ivNewItem.setImageDrawable(null);
         mProduct = product;
         tvNewItemName.setText(product.getProductTitle());
         GlideApp.with(ivNewItem.getContext())
@@ -51,6 +52,7 @@ public class NewInViewHolder extends BaseNewInViewHolder {
                 .error(R.drawable.error)
                 .into(ivNewItem);
     }
+
 
 
 }

@@ -4,6 +4,6 @@
 
     <string name="title">CHARLES &amp; KEITH</string>
     <string name="subtitle">NEW IN</string>
-    <string name="empty_msg">Sorry! \n Any information can not be displayed.</string>
+    <string name="empty_msg">Sorry! \n Please check your internet connection.</string>
     <string name = "format_item_count"> <xliff:g id="posted_date">%1$s</xliff:g> ITEMS</string>
 </resources>

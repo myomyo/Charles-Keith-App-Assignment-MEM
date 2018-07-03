@@ -31,6 +31,10 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <activity android:name=".activities.NewInDetailsInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

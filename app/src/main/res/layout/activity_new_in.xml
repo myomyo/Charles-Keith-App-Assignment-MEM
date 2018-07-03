@@ -51,7 +51,8 @@
                     android:layout_marginStart="@dimen/margin_medium"
                     android:layout_marginTop="@dimen/margin_large"
                     android:scaleType="fitXY"
-                    android:src="@drawable/rec_1" />
+                    android:src="@drawable/rec_1"
+                    android:clickable="true"/>
 
                 <ImageView
                     android:id="@+id/iv_rectangle_two"
@@ -62,13 +63,14 @@
                     android:layout_marginTop="@dimen/margin_large"
                     android:layout_toRightOf="@+id/iv_rectangle_one"
                     android:scaleType="fitXY"
-                    android:src="@drawable/rec_2" />
+                    android:src="@drawable/rec_2"
+                    android:clickable="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/iv_setting"
-                    android:layout_marginLeft="160dp"
+                    android:layout_marginLeft="170dp"
                     android:layout_marginTop="@dimen/margin_medium_3"
                     android:layout_toRightOf="@id/iv_rectangle_two"
                     android:fontFamily="@font/font_futra_light"
@@ -107,7 +109,8 @@
             android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin_medium_2">
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginHorizontal="@dimen/margin_medium_2">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_new_in"

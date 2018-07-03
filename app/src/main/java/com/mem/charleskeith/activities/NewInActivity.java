@@ -66,6 +66,7 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
         ButterKnife.bind(this,this);
 
         mNewInAdapter = new NewInAdapter(this);
+        mNewInAdapter.setLayoutChangeFlag(false);
         rvNewIn.setAdapter(mNewInAdapter);
         rvNewIn.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
 
@@ -115,6 +116,7 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
         ivRectangleOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mNewInAdapter.setLayoutChangeFlag(false);
                 rvNewIn.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
             }
         });
@@ -122,7 +124,15 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
         getIvRectangleTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rvNewIn.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2,GridLayoutManager.VERTICAL, false));
+                mNewInAdapter.setLayoutChangeFlag(true);
+                final GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(), 2,GridLayoutManager.VERTICAL, false);
+                gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {                    @Override
+                    public int getSpanSize(int position) {
+                        return mNewInAdapter.isPositionHeader(position) ? gridLayoutManager.getSpanCount() : 1;
+                    }
+
+                });
+                rvNewIn.setLayoutManager(gridLayoutManager);
             }
         });
     }

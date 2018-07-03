@@ -25,6 +25,7 @@ public class NewInAdapter extends RecyclerView.Adapter<BaseNewInViewHolder> {
 
     private NewInDelegate mNewInDelegate;
     private List<ProductVO> mProductList;
+    private boolean mLayoutChangeFlag;
 
     public NewInAdapter(NewInDelegate newInDelegate) {
         this.mNewInDelegate = newInDelegate;
@@ -34,16 +35,24 @@ public class NewInAdapter extends RecyclerView.Adapter<BaseNewInViewHolder> {
     @NonNull
     @Override
     public BaseNewInViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = null;
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
 
         if(viewType == TYPE_HEADER){
 
-            View view = layoutInflater.inflate(R.layout.viewholder_new_in_header, parent, false);
+            view = layoutInflater.inflate(R.layout.viewholder_new_in_header, parent, false);
             return new NewInHeaderViewHolder(view);
 
         }else if (viewType == TYPE_ITEM){
-            View view = layoutInflater.inflate(R.layout.viewholder_new_in, parent, false);
-            return new NewInViewHolder(view, mNewInDelegate);
+            /*if(mLayoutChangeFlag){
+                view = layoutInflater.inflate(R.layout.viewholder_new_in_grip, parent, false);
+                return new NewInViewHolder(view, mNewInDelegate);
+            }else{*/
+                view = layoutInflater.inflate(R.layout.viewholder_new_in, parent, false);
+                return new NewInViewHolder(view, mNewInDelegate);
+            //}
+
+
         }
 
        return null;
@@ -69,7 +78,7 @@ public class NewInAdapter extends RecyclerView.Adapter<BaseNewInViewHolder> {
         return TYPE_ITEM;
     }
 
-    private boolean isPositionHeader(int position)
+    public boolean isPositionHeader(int position)
     {
         return position == 0;
     }
@@ -83,5 +92,9 @@ public class NewInAdapter extends RecyclerView.Adapter<BaseNewInViewHolder> {
 
         mProductList.addAll(productList);
         notifyDataSetChanged();
+    }
+
+    public void setLayoutChangeFlag(boolean mLayoutChangeFlag) {
+        this.mLayoutChangeFlag = mLayoutChangeFlag;
     }
 }
