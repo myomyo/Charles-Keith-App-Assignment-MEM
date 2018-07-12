@@ -71,6 +71,7 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
         rvNewIn.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,false));
 
 
+        // start pagination
         rvNewIn.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             private boolean isListEndReached = false;
@@ -100,7 +101,7 @@ public class NewInActivity extends BaseActivity implements NewInDelegate{
                     isListEndReached = false;
                 }
             }
-        });
+        }); // end pagination
 
         NewProductModel.getObjInstance().loadNewProductList();
         swipeRefreshLayout.setRefreshing(true);

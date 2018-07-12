@@ -67,7 +67,7 @@ public class NewInAdapter extends RecyclerView.Adapter<BaseNewInViewHolder> {
 
     @Override
     public int getItemCount() {
-        return mProductList.size(); //TODO need to add 1 to list size;
+        return mProductList.size()+1; //TODO need to add 1 to list size;
     }
 
     @Override
